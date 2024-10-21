@@ -1,0 +1,31 @@
+server:
+  port: 9902
+
+spring:
+  application:
+    name: customer-service
+  datasource:
+    username: 'root'
+    password: 'secret'
+    url: jdbc:postgresql://localhost:5433/customer
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: 'true'
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    com.learning.profile: debug
+
+startup-actions:
+  initializeProfiles: true
+
+user:
+  default:
+    profile:
+      character: "{'profileId':'8b0e4a15-95c2-45bd-937d-f111a8bfbfec', 'firstName':'Vivek', 'lastName':'Kumar', 'age':27, 'ethnicity':'Indian', 'gender':'MALE', 'bio':'Software engineer, teacher and learner. I like reading and making things.', 'imageUrl':'', 'myersBriggsPersonalityType':'INTP'}"
