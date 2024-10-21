@@ -1,0 +1,81 @@
+name: cloud-apps
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      - 'POSTGRES_USER=root'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'PGDATA=/data/postgres'
+    volumes:
+      - ./db/postgres:/data/postgres
+    ports:
+      - '5433:5432'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - 'PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}'
+      - 'PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD:-admin}'
+      - 'PGADMIN_CONFIG_SERVER_MODE=False'
+    volumes:
+      - ./db/pgadmin:/var/lib/pgadmin
+    ports:
+      - '5050:80'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+#  zipkin:
+#    image: openzipkin/zipkin
+#    container_name: zipkin
+#    ports:
+#      - '9411:9411'
+#    networks:
+#      - spring
+
+  mongodb:
+    container_name: mongodb  # Unique container name
+    image: 'mongo:latest'
+    environment:
+      - 'MONGO_INITDB_DATABASE=ollama-database'
+      - 'MONGO_INITDB_ROOT_USERNAME=root'
+      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
+    ports:
+      - '27018:27017'  # Fixed mapping: host_port:container_port
+    volumes:
+      - ./db/volume_mongo:/data/db
+    networks:
+      - cloud-app-network
+
+  ollama:
+    container_name: ai-ollama
+    image: 'ollama/ollama:latest'
+    ports:
+      - '11435:11434'
+    volumes:
+      - ./ollama/ollama-script/pull-llama3.sh:/ollama-app/pull-llama3.sh # Mount the script from the host
+    working_dir: /ollama-app  # Set working directory
+    networks:
+      - cloud-app-network
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:11434/health"]
+#      interval: 30s
+#      timeout: 10s
+#      retries: 3
+
+
+networks:
+  postgres:
+    driver: bridge
+  cloud-app-network:
+    name: cloud-app-network
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
