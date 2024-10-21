@@ -33,3 +33,6 @@ build/
 
 ### MongoDB ###
 /db
+
+/customer-service/db/*
+ollama/test/

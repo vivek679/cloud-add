@@ -1,13 +1,13 @@
 server:
-  port: 9902
+  port: 9903
 
 spring:
   application:
-    name: customer-service
+    name: fraud-service
   datasource:
     username: 'root'
     password: 'secret'
-    url: jdbc:postgresql://localhost:5433/customer
+    url: jdbc:postgresql://localhost:5433/fraud
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -20,4 +20,4 @@ spring:
 
 logging:
   level:
-    com.learning.customer: debug
+    com.learning.fraudservice: debug

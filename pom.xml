@@ -15,6 +15,7 @@
         <module>user-service</module>
         <module>ollama</module>
         <module>customer-service</module>
+        <module>fraud-service</module>
     </modules>
 
     <properties>
