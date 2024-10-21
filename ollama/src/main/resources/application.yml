@@ -1,0 +1,23 @@
+server:
+  port: 9901
+
+spring:
+  application:
+    name: ollama
+
+
+  # AI OLLAMA
+  ai:
+    ollama:
+      base-url: http://localhost:11435
+      chat:
+        model: llama3.1
+        enabled: true
+        options:
+          temperature: 0.8
+
+  # Datasource : mongo
+  data:
+    mongodb:
+      port: 27018
+      uri: mongodb://root:secret@localhost:27018/ollama-database?authSource=admin
