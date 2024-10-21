@@ -16,6 +16,7 @@
         <module>ollama</module>
         <module>customer-service</module>
         <module>fraud-service</module>
+        <module>eureka-server</module>
     </modules>
 
     <properties>
@@ -27,6 +28,7 @@
         <commons.lang3.version>3.14.0</commons.lang3.version>
         <gson.version>2.11.0</gson.version>
         <spring-ai.version>1.0.0-M3</spring-ai.version>
+        <springframework.version>6.1.14</springframework.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +40,14 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2023.0.3</version> <!-- Use the latest stable version -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -48,9 +58,24 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.xmlunit</groupId>
+                    <artifactId>xmlunit-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

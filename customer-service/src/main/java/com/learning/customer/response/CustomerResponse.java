@@ -1,4 +1,4 @@
-package com.learning.customer;
+package com.learning.customer.response;
 
 public record CustomerResponse(
         Integer customerId,

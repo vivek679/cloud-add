@@ -1,4 +1,4 @@
-package com.learning.customer;
+package com.learning.customer.request;
 
 public record CustomerRequest(
         String firstName,

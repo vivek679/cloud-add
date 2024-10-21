@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("v1/profiles-creations")
+@RequestMapping("user-service/api/v1/profiles-creations")
 public class ProfileCreationController {
 
     private final ProfileCreationService profileCreationService;

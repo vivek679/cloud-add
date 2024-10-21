@@ -21,3 +21,6 @@ spring:
 logging:
   level:
     com.learning.customer: debug
+
+fraud-service:
+  url: http://localhost:9903
