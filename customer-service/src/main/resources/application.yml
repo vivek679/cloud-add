@@ -18,9 +18,22 @@ spring:
         format_sql: 'true'
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
+# Feign client configuration
+fraud-service:
+  url: http://localhost:9903
+
+# Eureka client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    appname: customer-service
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# logging configurations
 logging:
   level:
     com.learning.customer: debug
-
-fraud-service:
-  url: http://localhost:9903

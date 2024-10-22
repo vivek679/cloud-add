@@ -5,10 +5,19 @@ spring:
   application:
     name: eureka-server
 
+# Eureka server configuration
 eureka:
   instance:
     hostname: localhost
-
   client:
     register-with-eureka: false # This eureka server should not work as client
     fetch-registry: false # Since, its not a client it should not fetch details
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
