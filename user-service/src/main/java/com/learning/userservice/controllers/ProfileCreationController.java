@@ -1,4 +1,4 @@
-package com.learning.userservice.profile;
+package com.learning.userservice.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.Gender;
+import com.learning.userservice.service.ProfileCreationService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("user-service/api/v1/profiles-creations")
+@RequestMapping("user-service/v1/profiles-creations")
 public class ProfileCreationController {
 
     private final ProfileCreationService profileCreationService;

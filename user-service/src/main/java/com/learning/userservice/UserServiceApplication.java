@@ -5,8 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.learning.userservice.profile.ProfileCreationService;
-import com.learning.userservice.profile.ProfileRepository;
+import com.learning.userservice.repositories.ProfileRepository;
+import com.learning.userservice.service.ProfileCreationService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
