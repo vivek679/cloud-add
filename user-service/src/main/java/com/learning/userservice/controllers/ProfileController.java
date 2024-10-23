@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.Gender;
+import com.learning.userservice.request.ProfileRequest;
 import com.learning.userservice.response.ProfileResponse;
 import com.learning.userservice.service.ProfileService;
-import com.learning.userservice.request.ProfileRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,7 +26,7 @@ public class ProfileController {
     private final ProfileService profileService;
 
     @GetMapping(path = "{userGender}/random", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProfileResponse getRandomProfile(@PathVariable Gender userGender) {
+    public ProfileResponse getRandomProfile(@PathVariable("userGender") Gender userGender) {
         return profileService.getRandomProfileForUser(userGender);
     }
 

@@ -17,6 +17,7 @@
         <module>customer-service</module>
         <module>fraud-service</module>
         <module>eureka-server</module>
+        <module>hotel-service</module>
     </modules>
 
     <properties>

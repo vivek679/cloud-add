@@ -5,7 +5,6 @@ spring:
   application:
     name: ollama
 
-
   # AI OLLAMA
   ai:
     ollama:
