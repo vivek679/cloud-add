@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.learning.userservice.repositories.ProfileRepository;
 import com.learning.userservice.service.ProfileCreationService;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @SpringBootApplication
+@EnableDiscoveryClient
 public class UserServiceApplication implements CommandLineRunner {
 
     @Value("${startup-actions.initializeProfiles}")

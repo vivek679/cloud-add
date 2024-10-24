@@ -1,0 +1,27 @@
+server:
+  port: 9906
+
+spring:
+  application:
+    name: rating-service
+  data:
+    mongodb:
+      port: 27018
+      uri: mongodb://root:secret@localhost:27018/rating-database?authSource=admin
+
+# Eureka client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    appname: rating-service
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+# logging configurations
+logging:
+  level:
+    com.learning.ratingservice: debug

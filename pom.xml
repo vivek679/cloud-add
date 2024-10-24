@@ -18,6 +18,7 @@
         <module>fraud-service</module>
         <module>eureka-server</module>
         <module>hotel-service</module>
+        <module>rating-service</module>
     </modules>
 
     <properties>
