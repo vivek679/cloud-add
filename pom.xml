@@ -19,6 +19,7 @@
         <module>eureka-server</module>
         <module>hotel-service</module>
         <module>rating-service</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>
