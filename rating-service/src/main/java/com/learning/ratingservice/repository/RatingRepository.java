@@ -10,7 +10,6 @@ import com.learning.ratingservice.entities.RatingEntity;
 @Repository
 public interface RatingRepository extends MongoRepository<RatingEntity, String> {
 
-//    @Query("Select r FROM RATINGS r r.profileId = profileId")
     List<RatingEntity> findByProfileId(String profileId);
 
     List<RatingEntity> findByHotelId(String hotelId);

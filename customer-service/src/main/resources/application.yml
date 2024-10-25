@@ -7,7 +7,7 @@ spring:
   datasource:
     username: 'root'
     password: 'secret'
-    url: jdbc:postgresql://localhost:5433/customerService
+    url: jdbc:postgresql://localhost:5433/customer_service
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -37,3 +37,17 @@ eureka:
 logging:
   level:
     com.learning.customer: debug
+
+#resilience4j:
+#  circuitbreaker:
+#    instances:
+#      fraudService:
+#        registerHealthIndicator: true
+#        slidingWindowSize: 10
+#        failureRateThreshold: 50
+#        waitDurationInOpenState: 10000
+#  retry:
+#    instances:
+#      fraudService:
+#        maxAttempts: 3
+#        waitDuration: 500ms
