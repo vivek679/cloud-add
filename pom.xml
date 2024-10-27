@@ -12,14 +12,15 @@
     <url>https://github.com/vivek679/</url>
 
     <modules>
-        <module>user-service</module>
-        <module>ollama</module>
-        <module>customer-service</module>
-        <module>fraud-service</module>
-        <module>eureka-server</module>
-        <module>hotel-service</module>
-        <module>rating-service</module>
-        <module>api-gateway</module>
+        <module>user-service</module>       <!-- 9901 -->
+        <module>ollama</module>             <!--  -->
+        <module>customer-service</module>   <!-- 9902-->
+        <module>fraud-service</module>      <!-- 9903 -->
+        <module>eureka-server</module>      <!-- 8761 -->
+        <module>hotel-service</module>      <!-- 9905 -->
+        <module>rating-service</module>     <!-- 9906 -->
+        <module>api-gateway</module>        <!-- 9907 -->
+        <module>notification-service</module>   <!-- 9909 -->
     </modules>
 
     <properties>

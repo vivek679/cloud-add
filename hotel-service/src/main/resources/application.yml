@@ -7,7 +7,7 @@ spring:
   datasource:
     username: 'root'
     password: 'secret'
-    url: jdbc:postgresql://localhost:5433/hotelService
+    url: jdbc:postgresql://localhost:5433/hotel_service
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
