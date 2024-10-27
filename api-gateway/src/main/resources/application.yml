@@ -39,6 +39,11 @@ spring:
             predicates:
               - Path=/notification-service/**
 
+          - id: consumer-service
+            uri: lb://CONSUMER-SERVICE
+            predicates:
+              - Path=/consumer-service/**
+
 # Eureka client configuration
 eureka:
   instance:
