@@ -58,7 +58,7 @@ services:
     ports:
       - '11435:11434'
     volumes:
-      - ./ollama/ollama-script/pull-llama3.sh:/ollama-app/pull-llama3.sh # Mount the script from the host
+      - ./db/ollama/ollama-script/pull-llama3.sh:/ollama-app/pull-llama3.sh # Mount the script from the host
     working_dir: /ollama-app  # Set working directory
     networks:
       - cloud-app-network
@@ -67,6 +67,33 @@ services:
 #      interval: 30s
 #      timeout: 10s
 #      retries: 3
+
+  rabbitmq:
+    container_name: 'notification-rabbitmq'
+    image: 'rabbitmq:4.0.2-management'
+    hostname: "rabbitmq-host"
+    environment:
+      - 'RABBITMQ_DEFAULT_PASS=secret'
+      - 'RABBITMQ_DEFAULT_USER=guest'
+    ports:
+      - '5672:5672'  # used to expose to microservices
+      - '15672:15672' # Management port
+    volumes:
+      - ./db/rabbitmq-data/volume:/var/lib/rabbitmq
+    restart: always
+    networks:
+      - cloud-app-network
+
+  redis:
+    container_name: 'redis-cache'
+    image: 'redis:latest'
+    ports:
+      - '6379:6379'
+    volumes:
+      - './db/redis-data/volume:/data'
+    restart: always
+    networks:
+      - cloud-app-network
 
 
 networks:

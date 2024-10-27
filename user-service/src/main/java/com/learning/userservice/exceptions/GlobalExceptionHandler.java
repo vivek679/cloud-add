@@ -64,13 +64,4 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.MULTIPLE_CHOICES);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGeneralException(Exception exception) {
-        ErrorResponse errorResponse = new ErrorResponse(
-                "An unexpected error occurred",
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                exception.getClass().getSimpleName()
-        );
-        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
 }

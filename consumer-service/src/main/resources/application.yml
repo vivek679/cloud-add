@@ -1,0 +1,35 @@
+server:
+  port: 9910
+
+spring:
+  application:
+    name: consumer-service
+
+  # rabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: secret
+    virtual-host: /
+
+# Eureka client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    appname: consumer-service
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+rabbitmq:
+  queues:
+    queue_direct: queue.direct
+    queue_fanout: queue.fanout
+    queue_topic: queue.topic
+    queue_headers: queue.headers
+logging:
+  level:
+    com.learning.consumerservice: debug

@@ -1,0 +1,51 @@
+server:
+  port: 9909
+
+spring:
+  application:
+    name: notification-service
+
+  # rabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: secret
+    virtual-host: /
+
+# Eureka client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    appname: notification-service
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+## Explanation of below keys
+  # here we have a exchange called "internal.exchange" which we are binding with the queue called "notification.queue"
+  # we have a routing key "internal.notification.routing-key" which will automatically route's the msg to the above exchange and queue. Respectively.
+rabbitmq1:
+  exchanges:
+      internal: internal.exchange  # exchange name
+  queues:
+    notification: notification.queue # Queue name
+  routing-keys:
+    internal-notification: internal.notification.routing-key #routing key name
+
+rabbitmq:
+  exchanges:
+    direct: my-direct-exchange
+    fanout: my-fanout-exchange
+    topic: my-topic-exchange
+    headers: my-headers-exchange
+  queues:
+    queue_direct: queue.direct
+    queue_fanout: queue.fanout
+    queue_topic: queue.topic
+    queue_headers: queue.headers
+  routing-keys:
+    key1: key.direct
+    key2: key.topic

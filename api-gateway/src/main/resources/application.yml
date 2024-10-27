@@ -12,7 +12,7 @@ spring:
           - id: customer-service
             uri: lb://CUSTOMER-SERVICE
             predicates:
-              - Path=/customer-service/**
+              - Path=/customer-service/**,/rabbitmq-producer/**
 
           - id: hotel-service
             uri: lb://HOTEL-SERVICE
@@ -33,6 +33,16 @@ spring:
             uri: lb://OLLAMA
             predicates:
               - Path=/ollama/**
+
+          - id: notification-service
+            uri: lb://NOTIFICATION-SERVICE
+            predicates:
+              - Path=/notification-service/**
+
+          - id: consumer-service
+            uri: lb://CONSUMER-SERVICE
+            predicates:
+              - Path=/consumer-service/**
 
 # Eureka client configuration
 eureka:
